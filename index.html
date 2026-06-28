@@ -399,10 +399,11 @@ THEMES.forEach(t=>{
   b.addEventListener("click",()=>apply(t));
   dotRow.appendChild(b);
 });
+const GALLERY_SHOT={default:"home-default",nagomi:"session-nagomi",aegean:"library-aegean",lagom:"progress-lagom",hygge:"settings-hygge",toscana:"library-toscana",marrakech:"session-marrakech"};
 const gal=document.getElementById("gallery");
 THEMES.forEach(t=>{
   const c=document.createElement("div");c.className="gcard";
-  c.innerHTML='<span class="gframe"><img src="assets/themed/home-'+t.id+'.png" alt="MotionCue in the '+t.name+' theme"></span><b>'+t.name+(t.tag?' <span class="feat-tag">'+t.tag+'</span>':'')+'</b><small>'+t.sub+'</small>';
+  c.innerHTML='<span class="gframe"><img src="assets/themed/'+GALLERY_SHOT[t.id]+'.png" alt="MotionCue in the '+t.name+' theme"></span><b>'+t.name+(t.tag?' <span class="feat-tag">'+t.tag+'</span>':'')+'</b><small>'+t.sub+'</small>';
   c.querySelector(".gframe").addEventListener("click",()=>{apply(t);document.getElementById("feel").scrollIntoView({behavior:"smooth"});});
   gal.appendChild(c);
 });
