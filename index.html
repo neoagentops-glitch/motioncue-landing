@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- PRE-LAUNCH: remove this line to allow search indexing at official launch -->
+<title>MotionCue · a quiet reset for desk-stiff necks</title>
+<meta name="description" content="Watch-first stretch app for desk workers. Short, guided stretches on your wrist, every one sourced from Mayo Clinic, Cleveland Clinic, Harvard Health, and the APTA. Hands-free, private, calm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F4; --surface:#FFFFFF; --accent:#1E9E5B; --accent-ink:#15803D; --figure:#1E9E5B;
+  --hydration:#1E8FC4; --streak:#E0935A; --ink:#23272A; --ink2:#6B7268;
+  --maxw:1140px; --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .7s ease,color .7s ease;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.02em}
+h1 em,h2 em{font-style:italic;font-weight:500;color:var(--accent-ink)}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-family:var(--sans)}
+.muted{color:var(--ink2)}
+.section{position:relative;z-index:1}
+.bloom{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;z-index:0;pointer-events:none;transition:background .7s ease}
+nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.3) blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ink) 7%,transparent)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
+.brand .dot{width:25px;height:25px;border-radius:8px;background:var(--accent);display:grid;place-items:center;transition:background .7s ease}
+.brand .dot svg{width:15px;height:15px;stroke:#fff}
+.nav-links{display:flex;gap:26px;align-items:center;font-weight:600;font-size:.92rem}
+.nav-links a.cta{background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;transition:transform .15s ease,opacity .2s}
+.nav-links a.cta:hover{transform:translateY(-1px);opacity:.9}
+@media(max-width:760px){.nav-links a:not(.cta){display:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;padding:15px 26px;border-radius:999px;transition:transform .15s ease,background .7s ease;font-size:1rem}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 14px 34px color-mix(in srgb,var(--accent) 32%,transparent)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.text{color:var(--ink);font-weight:600;padding:15px 6px}
+.btn.text:hover{color:var(--accent-ink)}
+.btn.text svg{width:18px;height:18px;stroke:currentColor;transition:transform .2s}
+.btn.text:hover svg{transform:translateX(3px)}
+h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
+.lede{font-size:clamp(1rem,.95rem + .3vw,1.18rem);color:var(--ink2);max-width:60ch}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+/* device frames */
+.frame{background:#0d0f12;border-radius:44px;padding:6px;box-shadow:0 40px 80px color-mix(in srgb,var(--ink) 26%,transparent);display:inline-block}
+.frame img{display:block;border-radius:38px}
+.phone img{width:268px}
+.watch{position:absolute;border-radius:34px;padding:5px;box-shadow:0 24px 46px color-mix(in srgb,var(--ink) 28%,transparent)}
+.watch img{width:116px;border-radius:30px}
+/* hero */
+.hero{position:relative;padding:clamp(32px,4vw,52px) 0 clamp(22px,3vw,36px);overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4vw,56px);align-items:center}
+@media(max-width:900px){.hero .grid{grid-template-columns:1fr;gap:30px}}
+.hero h1{font-size:clamp(2.75rem,1.8rem + 4.5vw,5rem);margin:18px 0;line-height:1.02}
+.hero .lede{font-size:clamp(1.05rem,1rem + .4vw,1.25rem);margin-top:4px}
+.cta-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.trust{margin-top:26px;font-size:.86rem;font-weight:600;color:var(--ink2);display:flex;gap:7px 16px;flex-wrap:wrap;align-items:center}
+.trust .lbl{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--ink2);opacity:.8}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust .pip{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero-stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:560px}
+@media(max-width:900px){.hero-stage{min-height:0;padding:6px 0 10px}}
+.hero-stage .watch{right:4%;bottom:64px}
+@media(max-width:900px){.hero-stage .watch{right:8%;bottom:30px}}
+/* floating UI cards */
+.fcard{position:absolute;background:var(--surface);border-radius:16px;box-shadow:0 18px 40px color-mix(in srgb,var(--ink) 18%,transparent);padding:12px 14px;font-size:.8rem;z-index:5;border:1px solid color-mix(in srgb,var(--ink) 6%,transparent);animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(prefers-reduced-motion:reduce){.fcard{animation:none}}
+.fcard.a{top:46px;left:-6px;animation-delay:.2s}
+.fcard.b{bottom:150px;left:-24px;animation-delay:1.4s}
+@media(max-width:900px){.fcard{display:none}}
+.fcard .row{display:flex;align-items:center;gap:9px}
+.fcard .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}
+.fcard .ic svg{width:17px;height:17px;stroke:#fff}
+.fcard b{font-weight:700;font-size:.84rem;color:var(--ink)} .fcard small{color:var(--ink2);font-size:.72rem}
+.fcard .src{color:var(--accent-ink);font-weight:700}
+/* theme dots */
+.themepick{display:flex;align-items:center;gap:10px;margin-top:30px;flex-wrap:wrap}
+.themepick .tlabel{font-size:.78rem;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.1em}
+.dot-row{display:flex;gap:8px}
+.tdot{width:26px;height:26px;border-radius:50%;border:2px solid color-mix(in srgb,var(--ink) 14%,transparent);cursor:pointer;padding:0;transition:transform .15s ease,border-color .2s ease}
+.tdot:hover{transform:scale(1.12)}
+.tdot.active{border-color:var(--ink);transform:scale(1.12)}
+/* breather */
+.breather{text-align:center;padding:clamp(2.4rem,1.8rem + 2.5vw,4rem) 0}
+.breather p{font-family:var(--serif);font-size:clamp(1.5rem,1.1rem + 2vw,2.4rem);line-height:1.3;max-width:18ch;margin:0 auto;color:var(--ink)}
+.breather em{font-style:italic;color:var(--accent-ink)}
+/* sticky feature */
+.sticky-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media(max-width:860px){.sticky-wrap{grid-template-columns:1fr;gap:24px}}
+.sticky-device{position:sticky;top:90px;display:flex;justify-content:center;align-self:start}
+@media(max-width:860px){.sticky-device{position:relative;top:0}}
+.sticky-device .ph-stack{position:relative}
+.sticky-device .frame img{transition:opacity .5s ease}
+.beats{display:flex;flex-direction:column;gap:2.5vh;padding:2vh 0}
+.beat{padding:28px 30px;min-height:38vh;display:flex;flex-direction:column;justify-content:center;border-radius:20px;border:1px solid color-mix(in srgb,var(--ink) 8%,transparent);background:transparent;transition:background .4s ease,border-color .4s ease,box-shadow .4s ease}
+@media(max-width:860px){.beat{min-height:0;padding:28px 26px}.beats{gap:18px;padding:18px 0}}
+.beat.on{background:var(--surface);box-shadow:0 18px 44px color-mix(in srgb,var(--ink) 10%,transparent);border-color:transparent}
+.beat .eyebrow{margin-bottom:8px;display:block}
+.beat h3{font-size:1.5rem;margin-bottom:8px}
+.beat p{color:var(--ink2);font-size:1rem}
+.beat .clinics{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.beat .clinic{background:var(--bg);border:1px solid color-mix(in srgb,var(--ink) 9%,transparent);border-radius:10px;padding:7px 12px;font-weight:600;font-size:.82rem;display:flex;align-items:center;gap:7px}
+.beat .clinic .pip{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.faithline{margin-top:14px;font-size:.92rem;color:var(--ink2)}
+.faithline b{color:var(--ink)}
+/* theme gallery */
+.gallery{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;align-items:end;margin-top:40px}
+@media(max-width:980px){.gallery{grid-template-columns:repeat(4,1fr);gap:16px}}
+@media(max-width:560px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gcard{text-align:center}
+.gcard .gframe{background:#0d0f12;border-radius:22px;padding:4px;display:inline-block;box-shadow:0 16px 34px color-mix(in srgb,var(--ink) 16%,transparent);transition:transform .2s ease}
+.gcard:hover .gframe{transform:translateY(-6px)}
+.gcard img{display:block;width:100%;border-radius:19px}
+.gcard b{display:block;margin-top:12px;font-size:.92rem;font-weight:600}
+.gcard small{color:var(--ink2);font-size:.74rem}
+.gcard .feat-tag{display:inline-block;margin-left:6px;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-ink);background:color-mix(in srgb,var(--accent) 14%,transparent);padding:2px 7px;border-radius:999px;vertical-align:middle}
+/* social proof */
+.social{position:relative}
+/* aspirational lines */
+.aspire-carousel{position:relative;margin-top:8px}
+.aspire-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;transition:opacity .7s ease}
+.aspire-track.fading{opacity:0}
+@media(max-width:860px){.aspire-track{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.aspire-track{grid-template-columns:1fr}}
+.aspire-track p{break-inside:avoid;font-family:var(--serif);font-style:italic;font-size:1.02rem;line-height:1.5;color:var(--ink);background:var(--surface);border-left:3px solid var(--accent);border-radius:0 14px 14px 0;padding:18px 20px;margin:0;box-shadow:0 6px 20px color-mix(in srgb,var(--ink) 5%,transparent);transition:border-color .7s ease}
+.aspire-track p em{color:var(--accent-ink);font-style:italic;font-weight:500}
+.aspire-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
+.aq-arrow{width:40px;height:40px;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--ink) 14%,transparent);background:var(--surface);color:var(--ink);font-size:1.25rem;line-height:1;display:grid;place-items:center;cursor:pointer;transition:transform .15s ease,border-color .2s ease,color .2s ease}
+.aq-arrow:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent-ink)}
+.aq-dots{display:flex;gap:8px}
+.aq-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;background:color-mix(in srgb,var(--ink) 18%,transparent);cursor:pointer;transition:background .25s ease,transform .25s ease}
+.aq-dot.active{background:var(--accent);transform:scale(1.35)}
+.aspire-lede{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1rem + .6vw,1.5rem);color:var(--accent-ink);margin:2px 0 26px}
+/* panels */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:780px){.split{grid-template-columns:1fr}}
+.panel{background:var(--surface);border-radius:24px;padding:34px;border:1px solid color-mix(in srgb,var(--ink) 7%,transparent)}
+.panel h3{font-size:1.4rem;margin-bottom:14px}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.panel li{display:flex;gap:10px;align-items:flex-start;font-size:.98rem}
+.panel li svg{width:20px;height:20px;stroke:var(--accent);flex:none;margin-top:2px}
+.price-fine{margin-top:18px;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--ink) 8%,transparent);font-size:.86rem;color:var(--ink2);font-weight:500}
+/* founder */
+.founder{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:color-mix(in srgb,var(--accent) 8%,var(--surface));border-radius:30px;padding:clamp(30px,4vw,48px)}
+@media(max-width:720px){.founder{grid-template-columns:1fr;text-align:center}}
+.founder .ava{width:84px;height:84px;border-radius:50%;background:color-mix(in srgb,var(--accent) 18%,var(--surface));display:grid;place-items:center}
+.founder .ava svg{width:42px;height:42px;stroke:var(--accent-ink)}
+.founder blockquote{font-family:var(--serif);font-size:clamp(1.3rem,1.05rem + 1vw,1.7rem);line-height:1.35}
+.founder cite{display:block;margin-top:14px;font-style:normal;font-weight:600;font-size:.92rem;color:var(--ink2);font-family:var(--sans)}
+.final{text-align:center;padding:clamp(2.8rem,2.2rem + 3vw,4.6rem) 0;position:relative;overflow:hidden}
+.final h2{font-size:clamp(2.2rem,1.6rem + 3vw,3.4rem);margin-bottom:16px}
+.final h2 em{font-style:italic;color:var(--accent-ink)}
+.final p{font-size:1.14rem;color:var(--ink2);max-width:30ch;margin:0 auto 30px}
+footer{border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);padding:46px 0 64px;font-size:.9rem;color:var(--ink2)}
+.foot-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:26px}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;font-weight:600}
+.foot-links a:hover{color:var(--accent-ink)}
+.disclaimer{font-size:.8rem;line-height:1.6;max-width:64em}
+section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
+.shead{max-width:36ch;margin-bottom:36px}
+.shead h2{margin:12px 0}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7v6m0 0l-4 5m4-5l4 5M6 9.5l6 1.5 6-1.5"/></svg></span>MotionCue</div>
+    <div class="nav-links">
+      <a href="#feel">How it works</a>
+      <a href="#sources">Sources</a>
+      <a href="#themes">Themes</a>
+      <a class="cta" href="https://apps.apple.com/us/app/motioncue/id6779669562">Download</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero section">
+  <span class="bloom" style="width:520px;height:520px;background:var(--accent);top:-180px;left:-140px;opacity:.18"></span>
+  <span class="bloom" style="width:400px;height:400px;background:var(--streak);bottom:-160px;right:-40px;opacity:.16"></span>
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal in">
+        <span class="eyebrow">Watch-first · honestly sourced</span>
+        <h1>A quiet reset for <em>desk-stiff</em> necks.</h1>
+        <p class="lede">Short, guided stretches that run on your wrist, hands-free. Every one is drawn from a named clinic, not invented by an algorithm.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://apps.apple.com/us/app/motioncue/id6779669562">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></svg>
+            Download on the App Store
+          </a>
+          <a class="btn text" href="#feel">See how it works <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="themepick">
+          <span class="tlabel">Try a theme</span>
+          <div class="dot-row" id="dotRow"></div>
+        </div>
+        <div class="trust"><span class="lbl">Sourced from</span><span><i class="pip"></i>Mayo Clinic</span><span><i class="pip"></i>Cleveland Clinic</span><span><i class="pip"></i>Harvard Health</span><span><i class="pip"></i>APTA</span></div>
+      </div>
+      <div class="hero-stage reveal in">
+        <div class="fcard a"><div class="row"><span class="ic" style="background:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M12 7.4v6m0 0l-4 6m4-6l4 6M7 10l5 1.5 5-1.5"/></svg></span><div><b>Time to move</b><br><small>Tap to stretch · 30s</small></div></div></div>
+        <div class="fcard b"><div class="row"><span class="ic" style="background:var(--streak)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s0 2 2 2 1-4 2-5 0 0 0 0z"/></svg></span><div><b>Chin Tuck</b><br><small class="src">Source: Mayo Clinic</small></div></div></div>
+        <span class="frame phone"><img id="heroPhone" src="assets/themed/home-default.png" alt="MotionCue Home screen with today's session and cited stretches"></span>
+        <span class="frame watch"><img src="assets/watch.png" alt="MotionCue on Apple Watch"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="breather section">
+  <div class="wrap"><p>Sitting still is the most repetitive thing we do all day. MotionCue <em>interrupts it</em>, gently.</p></div>
+</section>
+
+<section class="block section" id="feel">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Show up, and it runs</span>
+      <h2 class="big">The whole thing lives <em>on your wrist.</em></h2>
+      <p class="lede">No app to fumble with mid-stretch. A reminder, a tap, a calm figure, done.</p>
+    </div>
+    <div class="sticky-wrap">
+      <div class="sticky-device">
+        <span class="frame phone"><img id="stickyPhone" src="assets/session.png" alt="MotionCue app screen"></span>
+      </div>
+      <div class="beats">
+        <div class="beat on" data-img="assets/session.png">
+          <span class="eyebrow">Guided session</span>
+          <h3>A calm figure leads every move.</h3>
+          <p>Tap in and the stretch plays itself: a faithful animated figure, a countdown, a plain instruction, and a form cue. A soft chime and haptic tell you when to switch sides.</p>
+        </div>
+        <div class="beat" data-img="assets/library.png">
+          <span class="eyebrow">It shows its work</span>
+          <h3>Every stretch names its source.</h3>
+          <p>The wellness aisle is full of "expert-designed" claims with nothing behind them. MotionCue does the opposite: a tappable citation on each stretch, so you can read the source yourself.</p>
+          <div class="clinics">
+            <span class="clinic"><i class="pip"></i>Mayo Clinic</span>
+            <span class="clinic"><i class="pip"></i>Cleveland Clinic</span>
+            <span class="clinic"><i class="pip"></i>Harvard Health</span>
+            <span class="clinic"><i class="pip"></i>APTA</span>
+          </div>
+          <p class="faithline"><b>One of 36 is text only, on purpose.</b> The Seated Spinal Twist stays written rather than animated, because the figure cannot show it without misleading you.</p>
+        </div>
+        <div class="beat" data-img="assets/progress.png">
+          <span class="eyebrow">No shame, no theater</span>
+          <h3>Progress that forgives you.</h3>
+          <p>See your streak, your sessions, and the areas you have focused on. A rest day or a missed day does not wipe it out. The goal is to move more often, not to feel in debt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block section" id="themes" style="background:color-mix(in srgb,var(--accent) 5%,var(--bg))">
+  <div class="wrap">
+    <div class="shead reveal" style="max-width:42ch">
+      <span class="eyebrow">Find your calm</span>
+      <h2 class="big">One app, drawn from <em>seven kinds of rest.</em></h2>
+      <p class="lede">MotionCue ships in a clean green. Prefer something softer? Each theme is a palette borrowed from a culture of calm, and the whole app settles into it. More themes arrive over time.</p>
+    </div>
+    <div class="gallery reveal" id="gallery"></div>
+  </div>
+</section>
+
+<section class="block section social">
+  <div class="wrap">
+    <div class="shead reveal" style="max-width:30ch">
+      <span class="eyebrow">Picture your day with it</span>
+      <h2 class="big">Let MotionCue give you <em>these experiences.</em></h2>
+    </div>
+    <p class="aspire-lede reveal">A few of the small, quiet wins a calmer workday can hold:</p>
+    <div class="aspire-carousel reveal" id="aspireCarousel">
+    <div class="aspire-track" id="aspireTrack">
+      <p>"My neck used to seize up by 3pm. Now my watch taps me, I do 60 seconds, and the knot never forms. I <em>never touch my phone.</em>"</p>
+      <p>"The first stretch app I trust — every single move tells me <em>which clinic it came from.</em> I read the Mayo Clinic page myself before I believed it."</p>
+      <p>"The whole thing lives <em>on my wrist.</em> A tap, a calm figure, a countdown, done. No app to fumble with mid-stretch."</p>
+      <p>"I missed three days and it didn't shame me into quitting. <em>The streak forgave me,</em> so I actually came back."</p>
+      <p>"In deep focus, I don't want to break context. A wrist buzz, a 30-second cue, and I'm back in flow without ever opening my phone."</p>
+      <p>"The soft chime and haptic to <em>switch sides</em> means I never have to look at the screen — I just feel my way through the stretch."</p>
+      <p>"On my feet all shift, but charting wrecks my neck. Short, sourced stretches between tasks are the only thing that's stuck."</p>
+      <p>"The Nagomi theme is so calm it <em>doesn't feel like a fitness app yelling at me.</em> It's the one thing on my watch I actually want to open."</p>
+      <p>"No upsell carousel, no nagging, no data grab. It runs a stretch and gets out of the way — the <em>calmest app I own.</em>"</p>
+      <p>"They admitted one stretch can't be animated honestly, so they left it as text. That bit of honesty made me <em>trust the other 35.</em>"</p>
+      <p>"Local-first, nothing sold, nothing tracked. Finally a wellness app I <em>don't have to be suspicious of.</em>"</p>
+      <p>"The figure's form cue actually fixed how I'd been tucking my chin wrong for years."</p>
+      <p>"<em>Watch-first is the entire point.</em> The reminder finds my wrist, I move, and my phone stays in my bag the whole workday."</p>
+      <p>"It showed me the price before I tapped install — no bait, no countdown timer. I subscribed knowing <em>exactly what I was getting.</em>"</p>
+      <p>"After back-to-back calls, one quiet 30-second reset on my wrist is the closest thing I have to <em>a real break.</em>"</p>
+      <p>"I switched it to Hygge in the winter and the whole app went warm and cozy. Seven themes, and I rotate them like moods."</p>
+      <p>"Spreadsheet season, and the little buzz every hour is the only reason my shoulders aren't up by my ears."</p>
+      <p>"It interrupts the most repetitive thing I do all day — <em>sitting perfectly still</em> — and it does it gently, not with an alarm."</p>
+      <p>"A faithful animated figure leads every move, so I'm never guessing whether I'm doing it right. I just <em>mirror the wrist.</em>"</p>
+      <p>"I'll go three hours without moving. This is the calm tap that reminds me my body exists."</p>
+      <p>"The progress screen shows my streak and focus areas without making me feel in debt. <em>Moving more often is the only goal,</em> and it works."</p>
+      <p>"A tappable citation on every stretch is the first time a wellness app has actually <em>shown its work.</em>"</p>
+      <p>"Apple Health sync is there if I want it and off until I say so. That's the right way around, and almost nobody does it."</p>
+      <p>"I subscribed on day one and never resented it — the calm <em>more than pays for itself,</em> and the price was right there before I committed."</p>
+      <p>"Honest about its sources, honest about my data, honest about money. In this category, that combination feels <em>almost radical.</em>"</p>
+    </div>
+    <div class="aspire-nav">
+      <button class="aq-arrow" id="aqPrev" aria-label="Previous quotes">&#8249;</button>
+      <div class="aq-dots" id="aqDots"></div>
+      <button class="aq-arrow" id="aqNext" aria-label="More quotes">&#8250;</button>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="block section">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel reveal">
+        <h3>Honest about your data</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Local-first. Your stretches, reminders, and progress run on your device.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>No data sold, no third-party tracking.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Optional Apple Health, only if you turn it on.</li>
+        </ul>
+      </div>
+      <div class="panel reveal">
+        <h3>Honest about money</h3>
+        <p class="muted" style="margin-bottom:16px">MotionCue is a subscription, and we say so before you install. The app unlocks once you subscribe — there's no free tier we quietly hope you'll upgrade from.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>An upfront paywall, not a bait-and-switch. You know the price going in.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>No fake urgency. No countdown timers, no discount theater.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Forgiving streaks. A rest day never punishes you.</li>
+        </ul>
+        <p class="price-fine">$4.99/month or $49/year (save ~18%) · auto-renews until cancelled, cancel anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block section">
+  <div class="wrap">
+    <div class="founder reveal">
+      <div class="ava"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+      <div>
+        <blockquote>"I built MotionCue because I needed it. So many times I'd look up and realize I'd been stuck in the same screen posture for hours, my range of motion quietly shrinking. So I made the thing that interrupts it. I hope it breaks up the most repetitive thing you do all day — there's something beautiful on the other side of moving again."</blockquote>
+        <cite>Brian, founder of MotionCue</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final section">
+  <span class="bloom" style="width:460px;height:460px;background:var(--accent);top:-120px;left:50%;transform:translateX(-50%);opacity:.14"></span>
+  <div class="wrap">
+    <h2>Stay loose <em>at your desk.</em></h2>
+    <p>A calmer body is a few quiet minutes away, guided on your wrist, sourced honestly.</p>
+    <a class="btn primary" href="https://apps.apple.com/us/app/motioncue/id6779669562">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7v6m0 0l-4 5m4-5l4 5M6 9.5l6 1.5 6-1.5"/></svg></span>MotionCue</div>
+      <div class="foot-links">
+        <a href="#feel">How it works</a><a href="#sources">Sources</a><a href="#themes">Themes</a>
+        <a href="https://apps.apple.com/us/app/motioncue/id6779669562">App Store</a>
+      </div>
+    </div>
+    <p class="disclaimer">MotionCue is a general wellness app, not a medical device. Stretches are sourced from published guidance by the named organizations; MotionCue is not affiliated with or endorsed by them. For informational purposes only. Consult a healthcare provider before starting any exercise program. © 2026 MotionCue.</p>
+  </div>
+</footer>
+
+<script>
+const THEMES=[
+ {id:"default",name:"Default",sub:"green · v1.0",tag:"original",v:{bg:"#FAF8F4",surface:"#FFFFFF",accent:"#1E9E5B",accentInk:"#15803D",figure:"#1E9E5B",streak:"#E0935A",ink:"#23272A",ink2:"#6B7268"}},
+ {id:"nagomi",name:"Nagomi",sub:"Japan · blossom",tag:"featured",v:{bg:"#FBF4EE",surface:"#FFFBF6",accent:"#E84A8A",accentInk:"#B83268",figure:"#9DB7A3",streak:"#E0935A",ink:"#4A3D42",ink2:"#9A8B8F"}},
+ {id:"aegean",name:"Aegean",sub:"Greece · sea & sun",tag:"",v:{bg:"#F7F9FB",surface:"#FFFFFF",accent:"#0B5BA4",accentInk:"#0B4C86",figure:"#647E98",streak:"#F1C44A",ink:"#263446",ink2:"#727F8F"}},
+ {id:"lagom",name:"Lagom",sub:"Sweden · just enough",tag:"",v:{bg:"#F5F4F1",surface:"#FFFFFF",accent:"#3B8278",accentInk:"#2E665E",figure:"#8B8D85",streak:"#D4A661",ink:"#3A3C3A",ink2:"#7F8278"}},
+ {id:"hygge",name:"Hygge",sub:"Denmark · cozy warmth",tag:"",v:{bg:"#F8F1E8",surface:"#FEFBF7",accent:"#CD6B4F",accentInk:"#A8503A",figure:"#9E8D7D",streak:"#E69E3E",ink:"#483C34",ink2:"#8E7E70"}},
+ {id:"toscana",name:"Toscana",sub:"Italy · olive & clay",tag:"",v:{bg:"#F8F3E8",surface:"#FEFCF7",accent:"#C45139",accentInk:"#9E3F2C",figure:"#7F8B5A",streak:"#D9AB51",ink:"#463F32",ink2:"#877D69"}},
+ {id:"marrakech",name:"Marrakech",sub:"Morocco · spice & sand",tag:"",v:{bg:"#F7EDE2",surface:"#FEFAF5",accent:"#E07323",accentInk:"#B25718",figure:"#A57763",streak:"#CD4F73",ink:"#4C392E",ink2:"#8F7667"}}
+];
+const root=document.documentElement, hero=document.getElementById("heroPhone");
+function apply(t){
+  const v=t.v;
+  for(const k of ["bg","surface","accent","figure","streak","ink","ink2"]) root.style.setProperty("--"+k,v[k]);
+  root.style.setProperty("--accent-ink",v.accentInk);
+  root.style.setProperty("--hydration","#1E8FC4");
+  hero.src="assets/themed/home-"+t.id+".png";
+  document.querySelectorAll(".tdot").forEach(d=>d.classList.toggle("active",d.dataset.id===t.id));
+}
+const dotRow=document.getElementById("dotRow");
+THEMES.forEach(t=>{
+  const b=document.createElement("button");
+  b.className="tdot";b.dataset.id=t.id;b.style.background=t.v.accent;b.title=t.name;b.setAttribute("aria-label",t.name+" theme");
+  b.addEventListener("click",()=>apply(t));
+  dotRow.appendChild(b);
+});
+const gal=document.getElementById("gallery");
+THEMES.forEach(t=>{
+  const c=document.createElement("div");c.className="gcard";
+  c.innerHTML='<span class="gframe"><img src="assets/themed/home-'+t.id+'.png" alt="MotionCue in the '+t.name+' theme"></span><b>'+t.name+(t.tag?' <span class="feat-tag">'+t.tag+'</span>':'')+'</b><small>'+t.sub+'</small>';
+  c.querySelector(".gframe").addEventListener("click",()=>{apply(t);document.getElementById("feel").scrollIntoView({behavior:"smooth"});});
+  gal.appendChild(c);
+});
+apply(THEMES[0]);
+const sticky=document.getElementById("stickyPhone"), beats=[...document.querySelectorAll(".beat")];
+const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){beats.forEach(x=>x.classList.remove("on"));e.target.classList.add("on");const img=e.target.dataset.img;if(sticky.src.indexOf(img)<0)sticky.src=img;}})},{rootMargin:"-45% 0px -45% 0px"});
+beats.forEach(b=>bo.observe(b));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* aspirational carousel */
+(function(){
+  const track=document.getElementById("aspireTrack");
+  if(!track) return;
+  const wrap=document.getElementById("aspireCarousel");
+  const dotsWrap=document.getElementById("aqDots");
+  const prevBtn=document.getElementById("aqPrev"), nextBtn=document.getElementById("aqNext");
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const quotes=[...track.querySelectorAll("p")].map(p=>p.innerHTML);
+  let perPage=3, page=0, pages=[], timer=null;
+  function calcPer(){return window.innerWidth<=560?1:window.innerWidth<=860?2:3;}
+  function chunk(){pages=[];for(let i=0;i<quotes.length;i+=perPage)pages.push(quotes.slice(i,i+perPage));}
+  function render(){
+    track.innerHTML=pages[page].map(h=>"<p>"+h+"</p>").join("");
+    [...dotsWrap.children].forEach((d,i)=>d.classList.toggle("active",i===page));
+  }
+  function buildDots(){
+    dotsWrap.innerHTML="";
+    pages.forEach((_,i)=>{
+      const b=document.createElement("button");
+      b.className="aq-dot"+(i===page?" active":"");
+      b.setAttribute("aria-label","Quote set "+(i+1)+" of "+pages.length);
+      b.addEventListener("click",()=>go(i,true));
+      dotsWrap.appendChild(b);
+    });
+  }
+  function go(i,manual){
+    page=(i%pages.length+pages.length)%pages.length;
+    if(reduce){render();}
+    else{track.classList.add("fading");setTimeout(()=>{render();track.classList.remove("fading");},700);}
+    [...dotsWrap.children].forEach((d,j)=>d.classList.toggle("active",j===page));
+    if(manual) restart();
+  }
+  function start(){if(!reduce&&pages.length>1&&!timer)timer=setInterval(()=>go(page+1),9000);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function restart(){stop();start();}
+  function build(){perPage=calcPer();chunk();if(page>=pages.length)page=0;buildDots();render();}
+  prevBtn.addEventListener("click",()=>go(page-1,true));
+  nextBtn.addEventListener("click",()=>go(page+1,true));
+  wrap.addEventListener("mouseenter",stop);
+  wrap.addEventListener("mouseleave",start);
+  wrap.addEventListener("focusin",stop);
+  wrap.addEventListener("focusout",start);
+  let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(calcPer()!==perPage)build();},200);});
+  build();start();
+})();
+</script>
+</body>
+</html>
