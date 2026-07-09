@@ -396,10 +396,8 @@ const THEMES=[
 ];
 const root=document.documentElement, hero=document.getElementById("heroPhone");
 function apply(t){
-  const v=t.v;
-  for(const k of ["bg","surface","accent","figure","streak","ink","ink2"]) root.style.setProperty("--"+k,v[k]);
-  root.style.setProperty("--accent-ink",v.accentInk);
-  root.style.setProperty("--hydration","#1E8FC4");
+  // The theme picker previews each palette on the PHONE only; the landing page keeps its own
+  // fixed palette (Brian's call, 2026-07-09) so the brand stays consistent.
   hero.src="assets/themed/home-"+t.id+".png";
   document.querySelectorAll(".tdot").forEach(d=>d.classList.toggle("active",d.dataset.id===t.id));
 }
