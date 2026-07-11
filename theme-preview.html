@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MotionCue themes: deeper backgrounds (before / after)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23272A;--ink2:#6B7268;--accent-ink:#15803D;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#EDEBE6;color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;padding:34px 20px 90px}
+.wrap{max-width:1120px;margin:0 auto}
+.pagehead{text-align:center;margin-bottom:6px}
+.pagehead h1{font-family:var(--serif);font-weight:500;font-size:1.85rem;letter-spacing:-.02em}
+.pagehead p{color:var(--ink2);max-width:70ch;margin:10px auto 0;font-size:.92rem}
+.sheet{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;margin-top:26px}
+.cell{background:#F7F5F1;border-radius:20px;border:1px solid rgba(0,0,0,.08);box-shadow:0 14px 34px rgba(0,0,0,.07);overflow:hidden}
+.cell .hd{background:var(--ink);color:#fff;padding:12px 20px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cell .hd b{font-family:var(--serif);font-weight:500;font-size:1.05rem}
+.cell .hd .desc{color:#c9c9c9;font-size:.76rem}
+.pair{display:flex;gap:16px;padding:20px 20px 12px;justify-content:center}
+.one{flex:1;max-width:210px;text-align:center}
+.one img{width:100%;border-radius:18px;box-shadow:0 8px 22px rgba(0,0,0,.14);display:block}
+.one .lab{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.one .now .swatch,.one .deep .swatch{display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,.15);vertical-align:middle;margin-right:5px}
+.now .lab{color:var(--ink2)}
+.deep .lab{color:var(--accent-ink)}
+.hex{font-size:.7rem;color:var(--ink2);margin-top:7px;font-variant-numeric:tabular-nums}
+.hex .arrow{opacity:.5;margin:0 4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="pagehead">
+    <h1>Deeper theme backgrounds: now vs proposed</h1>
+    <p>Each theme's background wash deepened toward its own character (nagomi pinker, aegean cooler, hygge / toscana / marrakech warmer, lagom deeper stone, neutral deeper sand). The textured hero art on top is unchanged; only the wash beneath it is darker, so the themes read as more distinct from one another. "Now" is what ships today; "Deeper" is the proposal. Say deeper, lighter, or per-theme tweaks. Classic (system) is left alone on purpose so it stays dark-mode correct. Unlisted, not on the live site.</p>
+  </div>
+  <div class="sheet">
+
+    <div class="cell">
+      <div class="hd"><b>Neutral</b><span class="desc">calm sand · default</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-neutral.png" alt="Neutral now"><div class="hex"><span class="swatch" style="background:#F2ECE3"></span>#F2ECE3<span class="arrow">→</span>#E1D6C4</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-neutral.png" alt="Neutral deeper"><div class="hex"><span class="swatch" style="background:#E1D6C4"></span>deeper sand</div></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="hd"><b>Nagomi</b><span class="desc">Japan · blossom</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-nagomi.png" alt="Nagomi now"><div class="hex"><span class="swatch" style="background:#FBF4EE"></span>#FBF4EE<span class="arrow">→</span>#F1E0DA</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-nagomi.png" alt="Nagomi deeper"><div class="hex"><span class="swatch" style="background:#F1E0DA"></span>pinker blush</div></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="hd"><b>Aegean</b><span class="desc">Greece · sea &amp; sun</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-aegean.png" alt="Aegean now"><div class="hex"><span class="swatch" style="background:#F7F9FB"></span>#F7F9FB<span class="arrow">→</span>#E4EBF4</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-aegean.png" alt="Aegean deeper"><div class="hex"><span class="swatch" style="background:#E4EBF4"></span>cooler sky</div></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="hd"><b>Lagom</b><span class="desc">Sweden · just enough</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-lagom.png" alt="Lagom now"><div class="hex"><span class="swatch" style="background:#F5F4F1"></span>#F5F4F1<span class="arrow">→</span>#E5E3DD</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-lagom.png" alt="Lagom deeper"><div class="hex"><span class="swatch" style="background:#E5E3DD"></span>deeper stone</div></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="hd"><b>Hygge</b><span class="desc">Denmark · cozy warmth</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-hygge.png" alt="Hygge now"><div class="hex"><span class="swatch" style="background:#F8F1E8"></span>#F8F1E8<span class="arrow">→</span>#EEDFCB</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-hygge.png" alt="Hygge deeper"><div class="hex"><span class="swatch" style="background:#EEDFCB"></span>warmer amber</div></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="hd"><b>Toscana</b><span class="desc">Italy · olive &amp; clay</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-toscana.png" alt="Toscana now"><div class="hex"><span class="swatch" style="background:#F8F3E8"></span>#F8F3E8<span class="arrow">→</span>#EDE2CB</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-toscana.png" alt="Toscana deeper"><div class="hex"><span class="swatch" style="background:#EDE2CB"></span>deeper gold</div></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="hd"><b>Marrakech</b><span class="desc">Morocco · spice &amp; sand</span></div>
+      <div class="pair">
+        <div class="one now"><div class="lab">Now</div><img src="theme-preview/now-marrakech.png" alt="Marrakech now"><div class="hex"><span class="swatch" style="background:#F7EDE2"></span>#F7EDE2<span class="arrow">→</span>#EAD9C4</div></div>
+        <div class="one deep"><div class="lab">Deeper</div><img src="theme-preview/deep-marrakech.png" alt="Marrakech deeper"><div class="hex"><span class="swatch" style="background:#EAD9C4"></span>spiced sand</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
