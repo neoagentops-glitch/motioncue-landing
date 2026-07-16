@@ -484,8 +484,22 @@ THEMES.forEach(t=>{
 });
 apply(THEMES[0]);
 const sticky=document.getElementById("stickyPhone"), beats=[...document.querySelectorAll(".beat")];
-const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){beats.forEach(x=>x.classList.remove("on"));e.target.classList.add("on");const img=e.target.dataset.img;if(sticky.src.indexOf(img)<0)sticky.src=img;}})},{rootMargin:"-45% 0px -45% 0px"});
+const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){beats.forEach(x=>x.classList.remove("on"));e.target.classList.add("on");const img=e.target.dataset.img;if(sticky.src.indexOf(img)<0)sticky.src=img;}})},{rootMargin:"-40% 0px -50% 0px"});
 beats.forEach(b=>bo.observe(b));
+// Align the right column with the phone screen: drop the beats by the pinned heading's
+// height so each panel sits beside the renderings, not the heading above them.
+const feelHead=document.querySelector("#feel .sticky-device .shead");
+function alignBeats(){
+  const beatsEl=document.querySelector("#feel .beats");
+  if(!feelHead||!beatsEl) return;
+  if(window.innerWidth>860){
+    const sd=feelHead.parentElement, g=parseFloat(getComputedStyle(sd).rowGap)||24;
+    beatsEl.style.paddingTop=(feelHead.offsetHeight+g)+"px";
+  } else { beatsEl.style.paddingTop=""; }
+}
+window.addEventListener("resize",alignBeats);
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(alignBeats);}
+alignBeats();
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{threshold:0.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
