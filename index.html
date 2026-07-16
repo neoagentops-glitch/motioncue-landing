@@ -17,6 +17,8 @@
 <meta name="twitter:title" content="MotionCue · a quiet reset for desk-stiff necks">
 <meta name="twitter:description" content="Short, guided stretches on your phone or wrist, sourced from real clinics. Watch-first, private, calm.">
 <meta name="twitter:image" content="https://motioncue.fit/assets/og-image.png">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="mask-icon" href="assets/favicon.svg" color="#1E9E5B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -58,6 +60,20 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+/* App Store badge (official lockup) */
+.appstore-badge{display:inline-flex;line-height:0;border-radius:9px;transition:transform .15s ease}
+.appstore-badge:hover{transform:translateY(-2px)}
+.appstore-badge svg{height:54px;width:auto;display:block}
+/* Circle section */
+.circle-wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center}
+@media(max-width:860px){.circle-wrap{grid-template-columns:1fr;gap:26px}}
+.circle-device{display:flex;justify-content:center}
+.circle-device .frame img{width:300px}
+@media(max-width:860px){.circle-device .frame img{width:236px}}
+.circle-points{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.circle-points li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;color:var(--ink2)}
+.circle-points li svg{width:21px;height:21px;stroke:var(--accent);flex:none;margin-top:3px}
+.circle-points b{color:var(--ink);font-weight:700}
 /* device frames */
 .frame{background:#0d0f12;border-radius:44px;padding:6px;box-shadow:0 40px 80px color-mix(in srgb,var(--ink) 26%,transparent);display:inline-block}
 .frame img{display:block;border-radius:38px}
@@ -79,13 +95,15 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 .trust .lbl{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--ink2);opacity:.8}
 .trust span{display:inline-flex;align-items:center;gap:6px}
 .trust .pip{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.hero-stage{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:clamp(24px,3.4vw,40px);min-height:560px}
+.hero-stage{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:clamp(40px,5.5vw,72px);min-height:560px}
 @media(max-width:900px){.hero-stage{min-height:0;padding:6px 0 10px;gap:22px}}
 /* money line gets its own space at the top of the right column */
-.hero-stage .hero-mic{margin:0;margin-left:0;max-width:34ch}
+.hero-stage .hero-mic{margin:clamp(30px,5vw,72px) 0 0;max-width:34ch}
 /* phone + watch as separate renderings, watch at its own scale (not overlapping) */
 .device-cluster{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:clamp(18px,2.8vw,44px)}
-@media(max-width:520px){.device-cluster{gap:16px}.phone img{width:186px}.watch img{width:132px}}
+.device-cluster .phone img{width:168px}
+.device-cluster .watch img{width:138px}
+@media(max-width:520px){.device-cluster{gap:16px}.device-cluster .phone img{width:176px}.device-cluster .watch img{width:126px}}
 /* floating UI cards */
 .fcard{position:absolute;background:var(--surface);border-radius:16px;box-shadow:0 18px 40px color-mix(in srgb,var(--ink) 18%,transparent);padding:12px 14px;font-size:.8rem;z-index:5;border:1px solid color-mix(in srgb,var(--ink) 6%,transparent);animation:floaty 6s ease-in-out infinite}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
@@ -194,6 +212,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
       <a href="#feel">How it works</a>
       <a href="#sources">Sources</a>
       <a href="#themes">Themes</a>
+      <a href="#together">Circle</a>
       <a class="cta" href="https://apps.apple.com/us/app/motioncue/id6779669562">Download</a>
     </div>
   </div>
@@ -209,10 +228,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
         <h1>A quiet reset for <em>desk-stiff</em> necks.</h1>
         <p class="lede">Short, guided stretches that run on your phone or wrist, hands-free. Every one is drawn from a named clinic, not invented by an algorithm.</p>
         <div class="cta-row">
-          <a class="btn primary" href="https://apps.apple.com/us/app/motioncue/id6779669562">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></svg>
-            Download on the App Store
-          </a>
+          <a class="appstore-badge" href="https://apps.apple.com/us/app/motioncue/id6779669562" aria-label="Download MotionCue on the App Store"><svg viewBox="0 0 120 40" role="img" xmlns="http://www.w3.org/2000/svg"><title>Download on the App Store</title><rect width="120" height="40" rx="8.5" fill="#000"/><g transform="translate(15,10.4) scale(.8)" fill="#fff"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></g><text fill="#fff" font-family="-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif"><tspan x="42" y="16.5" font-size="6.5" letter-spacing=".18">Download on the</tspan><tspan x="41.4" y="31.2" font-size="15.4" font-weight="600" letter-spacing="-.3">App Store</tspan></text></svg></a>
           <a class="btn text" href="#feel">See how it works <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="themepick">
@@ -268,6 +284,28 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
           <h3>Progress that forgives you.</h3>
           <p>See your streak, your sessions, and the areas you have focused on. A rest day or a missed day does not wipe it out. The goal is to move more often, not to feel in debt.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block section" id="together">
+  <div class="wrap">
+    <div class="circle-wrap">
+      <div class="circle-device reveal">
+        <span class="frame phone"><img src="assets/circle.png" alt="MotionCue Circle screen: a family group listing each person's streak, who moved today, and a cheer button"></span>
+      </div>
+      <div class="circle-copy reveal">
+        <span class="eyebrow">Better with a little company</span>
+        <h2 class="big">Keep the habit <em>with people you like.</em></h2>
+        <p class="lede">A Circle is a small, private group you invite. See who has moved today, send a cheer, feel one land on your wrist. No feeds, no followers, no scores to chase.</p>
+        <ul class="circle-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Private, by invite only.</b> Only the people you invite are in a Circle, and you can keep a few at once: family in one, work in another.</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>A name and a streak, nothing more.</b> Your Circle sees the display name you choose, your streak, and whether you moved today. Never which stretches you did, your schedule, or your hydration.</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Cheers, not leaderboards.</b> Tap to send "Love it," "Proud of you," or "Nice work." It blooms on their card and buzzes gently on their wrist.</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Bring a friend in free.</b> Someone you invite skips the upfront paywall and can start moving right away.</div></li>
+        </ul>
+        <p class="faithline" style="margin-top:18px">Stored in your own iCloud and shared only through Apple's private sharing. It never passes through our servers, and we never receive a copy.</p>
       </div>
     </div>
   </div>
@@ -370,10 +408,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
   <div class="wrap">
     <h2>Stay loose <em>at your desk.</em></h2>
     <p>A calmer body is a few quiet minutes away, guided on your phone or wrist, sourced honestly.</p>
-    <a class="btn primary" href="https://apps.apple.com/us/app/motioncue/id6779669562">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></svg>
-      Download on the App Store
-    </a>
+    <a class="appstore-badge" href="https://apps.apple.com/us/app/motioncue/id6779669562" aria-label="Download MotionCue on the App Store" style="justify-content:center"><svg viewBox="0 0 120 40" role="img" xmlns="http://www.w3.org/2000/svg"><title>Download on the App Store</title><rect width="120" height="40" rx="8.5" fill="#000"/><g transform="translate(15,10.4) scale(.8)" fill="#fff"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></g><text fill="#fff" font-family="-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif"><tspan x="42" y="16.5" font-size="6.5" letter-spacing=".18">Download on the</tspan><tspan x="41.4" y="31.2" font-size="15.4" font-weight="600" letter-spacing="-.3">App Store</tspan></text></svg></a>
   </div>
 </section>
 
@@ -382,7 +417,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
     <div class="foot-top">
       <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7v6m0 0l-4 5m4-5l4 5M6 9.5l6 1.5 6-1.5"/></svg></span>MotionCue</div>
       <div class="foot-links">
-        <a href="#feel">How it works</a><a href="#sources">Sources</a><a href="#themes">Themes</a>
+        <a href="#feel">How it works</a><a href="#sources">Sources</a><a href="#together">Circle</a><a href="#themes">Themes</a>
         <a href="https://apps.apple.com/us/app/motioncue/id6779669562">App Store</a>
         <a href="guide.html">User Guide</a><a href="guide.pdf" download>Guide (PDF)</a>
       </div>
