@@ -63,7 +63,7 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 /* App Store badge (official lockup) */
 .appstore-badge{display:inline-flex;line-height:0;border-radius:9px;transition:transform .15s ease}
 .appstore-badge:hover{transform:translateY(-2px)}
-.appstore-badge svg{height:54px;width:auto;display:block}
+.appstore-badge img{height:54px;width:auto;display:block}
 /* Circle section */
 .circle-wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center}
 @media(max-width:860px){.circle-wrap{grid-template-columns:1fr;gap:26px}}
@@ -74,6 +74,13 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 .circle-points li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;color:var(--ink2)}
 .circle-points li svg{width:21px;height:21px;stroke:var(--accent);flex:none;margin-top:3px}
 .circle-points b{color:var(--ink);font-weight:700}
+/* Meet Stanley */
+.stanley-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,5vw,60px);align-items:center}
+@media(max-width:820px){.stanley-wrap{grid-template-columns:1fr;gap:26px;text-align:center}}
+.stanley-art{background:color-mix(in srgb,var(--accent) 8%,var(--surface));border-radius:30px;padding:clamp(22px,3vw,36px);display:flex;justify-content:center}
+.stanley-art img{width:clamp(210px,25vw,300px);height:auto}
+.stanley-copy p{color:var(--ink2)}
+.stanley-copy p + p{margin-top:14px}
 /* device frames */
 .frame{background:#0d0f12;border-radius:44px;padding:6px;box-shadow:0 40px 80px color-mix(in srgb,var(--ink) 26%,transparent);display:inline-block}
 .frame img{display:block;border-radius:38px}
@@ -130,7 +137,9 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 /* sticky feature */
 .sticky-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 @media(max-width:860px){.sticky-wrap{grid-template-columns:1fr;gap:24px}}
-.sticky-device{position:sticky;top:90px;display:flex;justify-content:center;align-self:start}
+.sticky-device{position:sticky;top:80px;display:flex;flex-direction:column;gap:24px;align-self:start}
+.sticky-device .shead{margin:0;max-width:38ch}
+.sticky-device .frame{align-self:center}
 @media(max-width:860px){.sticky-device{position:relative;top:0}}
 .sticky-device .ph-stack{position:relative}
 .sticky-device .frame img{transition:opacity .5s ease}
@@ -228,7 +237,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
         <h1>A quiet reset for <em>desk-stiff</em> necks.</h1>
         <p class="lede">Short, guided stretches that run on your phone or wrist, hands-free. Every one is drawn from a named clinic, not invented by an algorithm.</p>
         <div class="cta-row">
-          <a class="appstore-badge" href="https://apps.apple.com/us/app/motioncue/id6779669562" aria-label="Download MotionCue on the App Store"><svg viewBox="0 0 120 40" role="img" xmlns="http://www.w3.org/2000/svg"><title>Download on the App Store</title><rect width="120" height="40" rx="8.5" fill="#000"/><g transform="translate(15,10.4) scale(.8)" fill="#fff"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></g><text fill="#fff" font-family="-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif"><tspan x="42" y="16.5" font-size="6.5" letter-spacing=".18">Download on the</tspan><tspan x="41.4" y="31.2" font-size="15.4" font-weight="600" letter-spacing="-.3">App Store</tspan></text></svg></a>
+          <a class="appstore-badge" href="https://apps.apple.com/us/app/motioncue/id6779669562" aria-label="Download MotionCue on the App Store"><img src="assets/appstore-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
           <a class="btn text" href="#feel">See how it works <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="themepick">
@@ -252,13 +261,13 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
 
 <section class="block section" id="feel">
   <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Show up, and it runs</span>
-      <h2 class="big">The whole thing lives <em>on your wrist.</em></h2>
-      <p class="lede">No app to fumble with mid-stretch. A reminder, a tap, a calm figure, done.</p>
-    </div>
     <div class="sticky-wrap">
       <div class="sticky-device">
+        <div class="shead reveal">
+          <span class="eyebrow">Show up, and it runs</span>
+          <h2 class="big">The whole thing lives <em>on your wrist.</em></h2>
+          <p class="lede">No app to fumble with mid-stretch. A reminder, a tap, a calm figure, done.</p>
+        </div>
         <span class="frame phone"><img id="stickyPhone" src="assets/session.png" alt="MotionCue app screen"></span>
       </div>
       <div class="beats">
@@ -284,6 +293,23 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
           <h3>Progress that forgives you.</h3>
           <p>See your streak, your sessions, and the areas you have focused on. A rest day or a missed day does not wipe it out. The goal is to move more often, not to feel in debt.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block section" id="stanley">
+  <div class="wrap">
+    <div class="stanley-wrap">
+      <div class="stanley-art reveal">
+        <img src="assets/stanley-wave.svg" alt="Stanley, the MotionCue figure, seated cross-legged and waving hello" width="300" height="315">
+      </div>
+      <div class="stanley-copy reveal">
+        <span class="eyebrow">Say hello</span>
+        <h2 class="big">Meet <em>Stanley.</em></h2>
+        <p class="lede">The calm little figure in every stretch has a name.</p>
+        <p>Stanley shows you each move from the inside: he sits where you sit, holds what you hold, and turns so you can follow along without a second guess. Mirror him and good form just happens.</p>
+        <p>He is pared down to a few quiet shapes <b>on purpose</b>. The minimalism is the design, not the ceiling: a companion you can copy without thinking, never a mascot demanding your attention.</p>
       </div>
     </div>
   </div>
@@ -315,10 +341,11 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
   <div class="wrap">
     <div class="shead reveal" style="max-width:42ch">
       <span class="eyebrow">Find your calm</span>
-      <h2 class="big">One app, drawn from <em>seven kinds of rest.</em></h2>
-      <p class="lede">MotionCue ships in a clean green. Prefer something softer? Each theme is a palette borrowed from a culture of calm, and the whole app settles into it. More themes arrive over time.</p>
+      <h2 class="big">One app, a <em>wardrobe of calm.</em></h2>
+      <p class="lede">MotionCue ships in a clean green, then dresses into whatever calms you. Each theme is a palette borrowed from a culture of rest, and the whole app settles into it, right down to Stanley. Here are a few; new ones land in the app over time.</p>
     </div>
     <div class="gallery reveal" id="gallery"></div>
+    <p class="reveal" style="text-align:center;margin-top:28px;color:var(--ink2);font-size:.92rem">A few favorites shown here. The full wardrobe lives in the app, and keeps growing.</p>
   </div>
 </section>
 
@@ -408,7 +435,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
   <div class="wrap">
     <h2>Stay loose <em>at your desk.</em></h2>
     <p>A calmer body is a few quiet minutes away, guided on your phone or wrist, sourced honestly.</p>
-    <a class="appstore-badge" href="https://apps.apple.com/us/app/motioncue/id6779669562" aria-label="Download MotionCue on the App Store" style="justify-content:center"><svg viewBox="0 0 120 40" role="img" xmlns="http://www.w3.org/2000/svg"><title>Download on the App Store</title><rect width="120" height="40" rx="8.5" fill="#000"/><g transform="translate(15,10.4) scale(.8)" fill="#fff"><path d="M16.5 1.2c.1 1.1-.3 2.2-1 3-.7.9-1.9 1.5-3 1.4-.1-1.1.4-2.2 1-2.9.8-.9 2-1.4 3-1.5zM20.3 17c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.7 3.3-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.7-1.6-3.6-3.1C-1 15.4-1.4 9.4 1.9 6.6 3 5.5 4.5 4.9 5.9 4.9c1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.2.4 7.4z"/></g><text fill="#fff" font-family="-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif"><tspan x="42" y="16.5" font-size="6.5" letter-spacing=".18">Download on the</tspan><tspan x="41.4" y="31.2" font-size="15.4" font-weight="600" letter-spacing="-.3">App Store</tspan></text></svg></a>
+    <a class="appstore-badge" href="https://apps.apple.com/us/app/motioncue/id6779669562" aria-label="Download MotionCue on the App Store" style="justify-content:center"><img src="assets/appstore-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
   </div>
 </section>
 
@@ -428,13 +455,10 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
 
 <script>
 const THEMES=[
- {id:"default",name:"Default",sub:"green · v1.0",tag:"original",v:{bg:"#FAF8F4",surface:"#FFFFFF",accent:"#1E9E5B",accentInk:"#15803D",figure:"#1E9E5B",streak:"#E0935A",ink:"#23272A",ink2:"#6B7268"}},
+ {id:"default",name:"Classic",sub:"the original green",tag:"ships with",v:{bg:"#FAF8F4",surface:"#FFFFFF",accent:"#1E9E5B",accentInk:"#15803D",figure:"#1E9E5B",streak:"#E0935A",ink:"#23272A",ink2:"#6B7268"}},
  {id:"nagomi",name:"Nagomi",sub:"Japan · blossom",tag:"featured",v:{bg:"#FBF4EE",surface:"#FFFBF6",accent:"#E84A8A",accentInk:"#B83268",figure:"#9DB7A3",streak:"#E0935A",ink:"#4A3D42",ink2:"#9A8B8F"}},
  {id:"aegean",name:"Aegean",sub:"Greece · sea & sun",tag:"",v:{bg:"#F7F9FB",surface:"#FFFFFF",accent:"#0B5BA4",accentInk:"#0B4C86",figure:"#647E98",streak:"#F1C44A",ink:"#263446",ink2:"#727F8F"}},
- {id:"lagom",name:"Lagom",sub:"Sweden · just enough",tag:"",v:{bg:"#F5F4F1",surface:"#FFFFFF",accent:"#3B8278",accentInk:"#2E665E",figure:"#8B8D85",streak:"#D4A661",ink:"#3A3C3A",ink2:"#7F8278"}},
- {id:"hygge",name:"Hygge",sub:"Denmark · cozy warmth",tag:"",v:{bg:"#F8F1E8",surface:"#FEFBF7",accent:"#CD6B4F",accentInk:"#A8503A",figure:"#9E8D7D",streak:"#E69E3E",ink:"#483C34",ink2:"#8E7E70"}},
- {id:"toscana",name:"Toscana",sub:"Italy · olive & clay",tag:"",v:{bg:"#F8F3E8",surface:"#FEFCF7",accent:"#C45139",accentInk:"#9E3F2C",figure:"#7F8B5A",streak:"#D9AB51",ink:"#463F32",ink2:"#877D69"}},
- {id:"marrakech",name:"Marrakech",sub:"Morocco · spice & sand",tag:"",v:{bg:"#F7EDE2",surface:"#FEFAF5",accent:"#E07323",accentInk:"#B25718",figure:"#A57763",streak:"#CD4F73",ink:"#4C392E",ink2:"#8F7667"}}
+ {id:"hygge",name:"Hygge",sub:"Denmark · cozy warmth",tag:"",v:{bg:"#F8F1E8",surface:"#FEFBF7",accent:"#CD6B4F",accentInk:"#A8503A",figure:"#9E8D7D",streak:"#E69E3E",ink:"#483C34",ink2:"#8E7E70"}}
 ];
 const root=document.documentElement, hero=document.getElementById("heroPhone");
 function apply(t){
