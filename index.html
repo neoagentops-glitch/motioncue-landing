@@ -139,7 +139,11 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 @media(max-width:860px){.sticky-wrap{grid-template-columns:1fr;gap:24px}}
 .sticky-device{position:sticky;top:80px;display:flex;flex-direction:column;gap:24px;align-self:start}
 .sticky-device .shead{margin:0;max-width:38ch}
-.sticky-device .frame{align-self:center}
+.sticky-device .watch-device{align-self:center}
+.watch-device{display:flex;justify-content:center}
+.watch-frame{position:relative;background:linear-gradient(158deg,#202226,#0a0b0d);border-radius:34px;padding:26px 13px 30px;box-shadow:0 28px 56px color-mix(in srgb,var(--ink) 32%,transparent);width:clamp(206px,25vw,244px)}
+.watch-frame img{display:block;width:100%;border-radius:26px;background:#000;transition:opacity .3s ease}
+.watch-frame::after{content:"";position:absolute;right:-4px;top:42%;height:56px;width:6px;background:linear-gradient(#45484d,#26282c);border-radius:4px}
 @media(max-width:860px){.sticky-device{position:relative;top:0}}
 .sticky-device .ph-stack{position:relative}
 .sticky-device .frame img{transition:opacity .5s ease}
@@ -150,9 +154,9 @@ h2.big{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:14px 0}
 .beat .eyebrow{margin-bottom:8px;display:block}
 .beat h3{font-size:1.5rem;margin-bottom:8px}
 .beat p{color:var(--ink2);font-size:1rem}
-.beat .clinics{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.beat .clinic{background:var(--bg);border:1px solid color-mix(in srgb,var(--ink) 9%,transparent);border-radius:10px;padding:7px 12px;font-weight:600;font-size:.82rem;display:flex;align-items:center;gap:7px}
-.beat .clinic .pip{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.clinics{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.clinic{background:var(--bg);border:1px solid color-mix(in srgb,var(--ink) 9%,transparent);border-radius:10px;padding:7px 12px;font-weight:600;font-size:.82rem;display:flex;align-items:center;gap:7px}
+.clinic .pip{width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .faithline{margin-top:14px;font-size:.92rem;color:var(--ink2)}
 .faithline b{color:var(--ink)}
 /* theme gallery */
@@ -268,33 +272,45 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
           <h2 class="big">The whole thing lives <em>on your wrist.</em></h2>
           <p class="lede">No app to fumble with mid-stretch. A reminder, a tap, a calm figure, done.</p>
         </div>
-        <span class="frame phone"><img id="stickyPhone" src="assets/session.png" alt="MotionCue app screen"></span>
+        <div class="watch-device reveal">
+          <div class="watch-frame"><img id="stickyWatch" src="assets/watch/default-home.png" alt="MotionCue on Apple Watch"></div>
+        </div>
       </div>
       <div class="beats">
-        <div class="beat on" data-img="assets/session.png">
-          <span class="eyebrow">Guided session</span>
+        <div class="beat on" data-screen="home">
+          <span class="eyebrow">It finds your wrist</span>
+          <h3>A buzz, and you're in.</h3>
+          <p>A gentle tap brings up a calm scene, your day, and what is next, right on your wrist. No digging for your phone.</p>
+        </div>
+        <div class="beat" data-screen="stretch">
+          <span class="eyebrow">Hands-free</span>
           <h3>A calm figure leads every move.</h3>
-          <p>Tap in and the stretch plays itself: a faithful animated figure, a countdown, a plain instruction, and a form cue. A soft chime and haptic tell you when to switch sides.</p>
+          <p>Stanley plays the stretch on your wrist: a countdown, a plain cue, and a soft haptic to tell you when to switch sides. Your phone never comes out.</p>
         </div>
-        <div class="beat" id="sources" data-img="assets/library.png" style="scroll-margin-top:90px">
-          <span class="eyebrow">It shows its work</span>
-          <h3>Every stretch names its source.</h3>
-          <p>The wellness aisle is full of "expert-designed" claims with nothing behind them. MotionCue does the opposite: a tappable citation on each stretch, so you can read the source yourself.</p>
-          <div class="clinics">
-            <span class="clinic"><i class="pip"></i>Mayo Clinic</span>
-            <span class="clinic"><i class="pip"></i>Cleveland Clinic</span>
-            <span class="clinic"><i class="pip"></i>Harvard Health</span>
-            <span class="clinic"><i class="pip"></i>APTA</span>
-          </div>
-          <p class="faithline"><b>One of 36 is text only, on purpose.</b> The Seated Spinal Twist stays written rather than animated, because the figure cannot show it without misleading you.</p>
-        </div>
-        <div class="beat" data-img="assets/progress.png">
+        <div class="beat" data-screen="done">
           <span class="eyebrow">No shame, no theater</span>
-          <h3>Progress that forgives you.</h3>
-          <p>See your streak, your sessions, and the areas you have focused on. A rest day or a missed day does not wipe it out. The goal is to move more often, not to feel in debt.</p>
+          <h3>Your streak lives here too.</h3>
+          <p>Finish and it ticks up on your wrist, then quietly syncs to your phone. A rest day never wipes it out; the goal is to move more often, not to feel in debt.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block section" id="sources">
+  <div class="wrap">
+    <div class="shead reveal" style="max-width:40ch">
+      <span class="eyebrow">It shows its work</span>
+      <h2 class="big">Every stretch <em>names its source.</em></h2>
+      <p class="lede">The wellness aisle is full of "expert-designed" claims with nothing behind them. MotionCue does the opposite: a tappable citation on each stretch, so you can read the source yourself.</p>
+    </div>
+    <div class="clinics reveal" style="margin-top:0;margin-bottom:18px">
+      <span class="clinic"><i class="pip"></i>Mayo Clinic</span>
+      <span class="clinic"><i class="pip"></i>Cleveland Clinic</span>
+      <span class="clinic"><i class="pip"></i>Harvard Health</span>
+      <span class="clinic"><i class="pip"></i>APTA</span>
+    </div>
+    <p class="faithline reveal" style="max-width:54ch"><b>One of 36 is text only, on purpose.</b> The Seated Spinal Twist stays written rather than animated, because the figure cannot show it without misleading you.</p>
   </div>
 </section>
 
@@ -462,9 +478,10 @@ const THEMES=[
 ];
 const root=document.documentElement, hero=document.getElementById("heroPhone");
 function apply(t){
-  // The theme picker previews each palette on the PHONE only; the landing page keeps its own
-  // fixed palette (Brian's call, 2026-07-09) so the brand stays consistent.
+  // The picker previews each palette on the hero phone and tints the Apple Watch in the
+  // "lives on your wrist" section; the page chrome keeps its own fixed brand palette.
   hero.src="assets/themed/home-"+t.id+".png";
+  if(window.setWatchTheme)window.setWatchTheme(t.id);
   document.querySelectorAll(".tdot").forEach(d=>d.classList.toggle("active",d.dataset.id===t.id));
 }
 const dotRow=document.getElementById("dotRow");
@@ -483,8 +500,17 @@ THEMES.forEach(t=>{
   gal.appendChild(c);
 });
 apply(THEMES[0]);
-const sticky=document.getElementById("stickyPhone"), beats=[...document.querySelectorAll(".beat")];
-const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){beats.forEach(x=>x.classList.remove("on"));e.target.classList.add("on");const img=e.target.dataset.img;if(sticky.src.indexOf(img)<0)sticky.src=img;}})},{rootMargin:"-40% 0px -50% 0px"});
+const WATCH_SHOTS={
+ default:{home:"assets/watch/default-home.png",stretch:"assets/watch/default-stretch.png",done:"assets/watch/default-done.png"},
+ nagomi:{home:"assets/watch/nagomi-home.png",stretch:"assets/watch/nagomi-stretch.png",done:"assets/watch/nagomi-done.png"},
+ aegean:{home:"assets/watch/aegean-home.png",stretch:"assets/watch/aegean-stretch.png",done:"assets/watch/aegean-done.png"},
+ hygge:{home:"assets/watch/hygge-home.png",stretch:"assets/watch/hygge-stretch.png",done:"assets/watch/hygge-done.png"}
+};
+const stickyWatch=document.getElementById("stickyWatch"), beats=[...document.querySelectorAll("#feel .beat")];
+let watchTheme="default", watchScreen="home", watchKey="";
+function updateWatch(){const set=WATCH_SHOTS[watchTheme]||WATCH_SHOTS.default;const p=set[watchScreen]||set.home;if(p===watchKey)return;watchKey=p;stickyWatch.src=(window.__A&&window.__A[p])||p;}
+window.setWatchTheme=function(id){watchTheme=WATCH_SHOTS[id]?id:"default";updateWatch();};
+const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){beats.forEach(x=>x.classList.remove("on"));e.target.classList.add("on");watchScreen=e.target.dataset.screen;updateWatch();}})},{rootMargin:"-40% 0px -50% 0px"});
 beats.forEach(b=>bo.observe(b));
 // Align the right column with the phone screen: drop the beats by the pinned heading's
 // height so each panel sits beside the renderings, not the heading above them.
