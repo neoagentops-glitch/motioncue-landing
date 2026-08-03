@@ -42,8 +42,9 @@ h1 em,h2 em{font-style:italic;font-weight:500;color:var(--accent-ink)}
 nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.3) blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ink) 7%,transparent)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
-.brand .dot{width:25px;height:25px;border-radius:8px;background:var(--accent);display:grid;place-items:center;transition:background .7s ease}
+.brand .dot{width:25px;height:25px;border-radius:8px;background:var(--accent);display:grid;place-items:center;transition:background .7s ease;overflow:hidden}
 .brand .dot svg{width:15px;height:15px;stroke:#fff}
+.brand .dot img{width:25px;height:25px;display:block}
 .nav-links{display:flex;gap:26px;align-items:center;font-weight:600;font-size:.92rem}
 .nav-links a.cta{background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;transition:transform .15s ease,opacity .2s}
 .nav-links a.cta:hover{transform:translateY(-1px);opacity:.9}
@@ -220,7 +221,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
 <body>
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7v6m0 0l-4 5m4-5l4 5M6 9.5l6 1.5 6-1.5"/></svg></span>MotionCue</div>
+    <div class="brand"><span class="dot"><img src="assets/app-icon-128.png" alt="" width="25" height="25"></span>MotionCue</div>
     <div class="nav-links">
       <a href="#feel">How it works</a>
       <a href="#sources">Sources</a>
@@ -254,8 +255,6 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
       <div class="hero-stage reveal in">
         <p class="hero-mic"><span class="lead-gold">Sitting still</span> is the most repetitive thing we do all day.<span class="payoff">MotionCue <em>interrupts it</em>, gently.</span></p>
         <div class="device-cluster">
-        <div class="fcard a"><div class="row"><span class="ic" style="background:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M12 7.4v6m0 0l-4 6m4-6l4 6M7 10l5 1.5 5-1.5"/></svg></span><div><b>Time to move</b><br><small>Tap to stretch · 30s</small></div></div></div>
-        <div class="fcard b"><div class="row"><span class="ic" style="background:var(--streak)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s0 2 2 2 1-4 2-5 0 0 0 0z"/></svg></span><div><b>Chin Tuck</b><br><small class="src">Source: Mayo Clinic</small></div></div></div>
         <span class="frame phone"><img id="heroPhone" src="assets/themed/home-default.png" alt="MotionCue Home screen with today's session and cited stretches"></span>
         <span class="frame watch"><img src="assets/watch.png" alt="MotionCue on Apple Watch"></span>
         </div>
@@ -474,7 +473,7 @@ section.block{padding:clamp(2.4rem,1.8rem + 2vw,3.6rem) 0}
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="brand"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M12 7v6m0 0l-4 5m4-5l4 5M6 9.5l6 1.5 6-1.5"/></svg></span>MotionCue</div>
+      <div class="brand"><span class="dot"><img src="assets/app-icon-128.png" alt="" width="25" height="25"></span>MotionCue</div>
       <div class="foot-links">
         <a href="#feel">How it works</a><a href="#sources">Sources</a><a href="#together">Circle</a><a href="#themes">Themes</a>
         <a href="https://apps.apple.com/us/app/motioncue/id6779669562">App Store</a>
